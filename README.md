@@ -1,4 +1,4 @@
-# Spring Boot 3.0 + JDBC Template sample
+# Spring Boot 3.0 + Spring Data JPA + JDBC Template sample
 
 Run sample in development mode with [Just](https://just.maciejwalkowiak.com/):
 

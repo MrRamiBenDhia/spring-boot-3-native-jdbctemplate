@@ -13,11 +13,15 @@ public class SpringNativeJdbctemplateApplication {
     }
 
 
-    @Bean ApplicationRunner applicationRunner(PersonRepository personRepository) {
+    @Bean ApplicationRunner applicationRunner(PersonRepository personRepository, CityRepository cityRepository) {
         return args -> {
             if (personRepository.findAll().isEmpty()) {
                 personRepository.save(new Person("p1", "amy"));
                 personRepository.save(new Person("p2", "jane"));
+            }
+            if (cityRepository.count() == 0) {
+                cityRepository.save(new City("c1", "Madrid"));
+                cityRepository.save(new City("c2", "London"));
             }
         };
     }
