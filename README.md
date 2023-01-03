@@ -1,7 +1,19 @@
 # Spring Boot 3.0 + JDBC Template sample
 
-Run sample with [Just](https://just.maciejwalkowiak.com/):
+Run sample in development mode with [Just](https://just.maciejwalkowiak.com/):
 
 ```
 $ just run
+```
+
+Build a native executable:
+
+```
+$ just build native
+```
+
+Run application native application:
+
+```
+$ docker-compose up -d --wait && ./target/spring-native-jdbctemplate
 ```
