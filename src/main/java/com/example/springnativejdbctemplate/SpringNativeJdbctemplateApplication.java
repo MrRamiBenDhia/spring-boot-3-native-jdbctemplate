@@ -12,6 +12,7 @@ public class SpringNativeJdbctemplateApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringNativeJdbctemplateApplication.class, args);
+        System.out.println("Hellooo there its working");
     }
 
 }

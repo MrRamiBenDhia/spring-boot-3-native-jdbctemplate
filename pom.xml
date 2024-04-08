@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>spring-native-jdbctemplate</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>spring-native-jdbctemplate</name>
 	<description>spring-native-jdbctemplate</description>
 	<properties>
@@ -49,6 +49,20 @@
             <version>1.18.28</version>
         </dependency>
 
+		<dependency>
+      <groupId>org.graalvm.nativeimage</groupId>
+      <artifactId>svm</artifactId>
+      <version>22.3.3</version>
+      <scope>provided</scope>
+    </dependency>
+	    <dependency>
+      <groupId>org.graalvm.sdk</groupId>
+      <artifactId>graal-sdk</artifactId>
+      <version>22.3.3</version>
+      <scope>provided</scope>
+    </dependency>
+
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -60,6 +74,25 @@
             <artifactId>jjwt</artifactId>
             <version>0.12.5</version>
         </dependency>
+
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.12.5</version>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.12.5</version>
+    <scope>runtime</scope>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+    <version>0.12.5</version>
+    <scope>runtime</scope>
+</dependency>
+
 
         <dependency>
             <groupId>com.opencsv</groupId>
@@ -75,6 +108,24 @@
 			<plugin>
 				<groupId>org.graalvm.buildtools</groupId>
 				<artifactId>native-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<buildArgs>
+								<!-- <arg>-initialize-at-build-time</arg> -->
+								<arg>--initialize-at-build-time=org.apache.commons.logging.LogFactory</arg>
+								<arg>--allow-incomplete-classpath</arg>
+								<!-- <arg>-H:+ReportExceptionStackTraces</arg> -->
+							</buildArgs>
+							<verbose>true</verbose>
+							<debug>true</debug>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

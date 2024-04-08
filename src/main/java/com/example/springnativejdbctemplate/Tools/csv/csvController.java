@@ -11,7 +11,6 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.opencsv.exceptions.CsvValidationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/csv")
 public class csvController {
-//    @Autowired
+    //    @Autowired
     UserRepo userRepo;
 
 
@@ -80,11 +79,13 @@ public class csvController {
 
         long elapsedTime = System.currentTimeMillis() - startTime;
         return ResponseEntity.ok("Users added successfully from CSV. Time taken: " + elapsedTime + " milliseconds" + "List size = " + users.size());
-    }    @PostMapping("/{filename}")
+    }
+
+    @PostMapping("/{filename}")
     public ResponseEntity<?> createUsersFromCSVWithFileNameInParam(@PathVariable String filename) {
         long startTime = System.currentTimeMillis(); // Start measuring time
 
-        List<User> users = readUsersFromCSV(filename+".csv");
+        List<User> users = readUsersFromCSV(filename + ".csv");
         if (users == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to read CSV file");
         }
@@ -119,11 +120,13 @@ public class csvController {
                 x.setUpdatedAt(new Date());
 
                 users.add(x);
-            } br.close();
+            }
+            br.close();
         } catch (IOException | ArrayIndexOutOfBoundsException | NumberFormatException e) {
             e.printStackTrace();
             return null; // Return null if any exception occurs
-        } return users;
+        }
+        return users;
     }
 
 
