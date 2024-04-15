@@ -4,6 +4,7 @@ package com.example.springnativejdbctemplate.controller;
 import com.example.springnativejdbctemplate.Service.RealmService;
 import com.example.springnativejdbctemplate.model.Realm;
 import com.example.springnativejdbctemplate.repository.RealmRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +14,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/realm")
 @Controller
+@RequiredArgsConstructor
 public class RealmController {
-
-    @Autowired
-    RealmService realmService;
+    private final RealmService realmService;
 
 
     @PutMapping("/{idRealm}/assignUser/{idUser}/")//? assign User to Realm

@@ -119,11 +119,22 @@
 								<!-- <arg>-initialize-at-build-time</arg> -->
 								<arg>--initialize-at-build-time=org.apache.commons.logging.LogFactory</arg>
 								<arg>--allow-incomplete-classpath</arg>
-								<arg>-H:ReflectionConfigurationFiles=reflect-config.json</arg>
+<!--								<arg>-H:ReflectionConfigurationFiles=reflect-config.json</arg>-->
 								<!-- <arg>-H:+ReportExceptionStackTraces</arg> -->
 							</buildArgs>
 							<verbose>true</verbose>
 							<debug>true</debug>
+							<resources>
+								<resource>
+									<patternSet>
+										<includes>
+											<include>application.properties</include>
+											<include>reflect-config.json</include>
+											<include>resource-config.json</include>
+										</includes>
+									</patternSet>
+								</resource>
+							</resources>
 						</configuration>
 					</execution>
 				</executions>

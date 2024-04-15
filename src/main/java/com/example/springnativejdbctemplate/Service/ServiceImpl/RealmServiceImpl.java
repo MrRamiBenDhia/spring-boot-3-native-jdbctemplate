@@ -7,6 +7,7 @@ import com.example.springnativejdbctemplate.model.User;
 import com.example.springnativejdbctemplate.repository.ClientRepo;
 import com.example.springnativejdbctemplate.repository.RealmRepo;
 import com.example.springnativejdbctemplate.repository.UserRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,15 +16,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class RealmServiceImpl implements RealmService {
 
-    @Autowired
-    private RealmRepo realmRepo;
-    @Autowired
-    private ClientRepo clientRepo;
-    @Autowired
-    private UserRepo userRepo;
+
+    private final RealmRepo realmRepo;
+
+    private final ClientRepo clientRepo;
+
+    private final UserRepo userRepo;
 
     public void addUser(Long idRealm, Long idUser) {
         Realm realm = realmRepo.findById(idRealm).orElseThrow(() -> {

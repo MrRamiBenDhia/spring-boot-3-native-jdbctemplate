@@ -11,6 +11,7 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.opencsv.exceptions.CsvValidationException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,9 +27,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/csv")
+@RequiredArgsConstructor
 public class csvController {
     //    @Autowired
-    UserRepo userRepo;
+    private final UserRepo userRepo;
 
 
     void read_write() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, CsvValidationException {
