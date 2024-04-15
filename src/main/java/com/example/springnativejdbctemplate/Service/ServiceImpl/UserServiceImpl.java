@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 
 public class UserServiceImpl implements UserService {
-    private final UserRepo userRepo;
+    private  UserRepo userRepo;
 
     @Override
     public Optional<User> findByUID(Long UID) {

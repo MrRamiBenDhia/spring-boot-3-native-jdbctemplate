@@ -27,10 +27,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/csv")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class csvController {
     //    @Autowired
-    private final UserRepo userRepo;
+    private UserRepo userRepo;
 
 
     void read_write() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, CsvValidationException {

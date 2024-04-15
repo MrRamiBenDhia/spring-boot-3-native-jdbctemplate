@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 
 public class ClientServiceImpl implements ClientService {
 
 
-    private final ClientRepo clientRepo;
+    private ClientRepo clientRepo;
     @Override
     public Optional<Client> findByID(Long ID) {
         return clientRepo.findById(ID);

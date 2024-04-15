@@ -22,8 +22,8 @@ public class PrimeController {
 
     @GetMapping("/{n}")
     public ResponseEntity<?> getNthPrimeNumbers(@PathVariable int n) {
-        if (n > 1000000) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Cannot exceed the limit of 1 million");
+        if (n > 10000000) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Cannot exceed the limit of 10 million");
         } else if (n < 0) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Cannot enter a negative number");
         } else {

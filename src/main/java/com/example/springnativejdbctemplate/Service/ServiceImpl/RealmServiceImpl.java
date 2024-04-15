@@ -16,15 +16,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class RealmServiceImpl implements RealmService {
 
 
-    private final RealmRepo realmRepo;
+    private  RealmRepo realmRepo;
 
-    private final ClientRepo clientRepo;
+    private ClientRepo clientRepo;
 
-    private final UserRepo userRepo;
+    private UserRepo userRepo;
 
     public void addUser(Long idRealm, Long idUser) {
         Realm realm = realmRepo.findById(idRealm).orElseThrow(() -> {
