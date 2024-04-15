@@ -4,6 +4,7 @@ import com.example.springnativejdbctemplate.Service.UserService;
 import com.example.springnativejdbctemplate.model.User;
 import com.example.springnativejdbctemplate.repository.UserRepo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-//    @Autowired
+    @Autowired
     private UserRepo userRepo;
 
     @Override

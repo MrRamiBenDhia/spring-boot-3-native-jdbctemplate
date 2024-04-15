@@ -14,7 +14,7 @@ import java.util.Optional;
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
-//    @Autowired
+    @Autowired
     private ClientRepo clientRepo;
     @Override
     public Optional<Client> findByID(Long ID) {

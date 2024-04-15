@@ -18,11 +18,11 @@ import java.util.Optional;
 @Transactional
 public class RealmServiceImpl implements RealmService {
 
-//    @Autowired
+    @Autowired
     private RealmRepo realmRepo;
-//    @Autowired
+    @Autowired
     private ClientRepo clientRepo;
-//    @Autowired
+    @Autowired
     private UserRepo userRepo;
 
     public void addUser(Long idRealm, Long idUser) {

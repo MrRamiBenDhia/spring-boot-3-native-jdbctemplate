@@ -14,10 +14,9 @@ import java.util.List;
 @RequestMapping("/client")
 @Controller
 public class ClientController {
-//    @Autowired
-    ClientRepo clientRepo;
 
-//    @Autowired
+
+    @Autowired
     ClientService clientService;
 
 

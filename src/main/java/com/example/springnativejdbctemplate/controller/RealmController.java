@@ -14,10 +14,8 @@ import java.util.List;
 @RequestMapping("/realm")
 @Controller
 public class RealmController {
-//    @Autowired
-    RealmRepo realmRepo;
 
-//    @Autowired
+    @Autowired
     RealmService realmService;
 
 

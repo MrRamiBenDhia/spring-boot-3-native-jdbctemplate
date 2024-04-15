@@ -18,14 +18,13 @@ import java.util.List;
 @RequestMapping("/user")
 @Controller
 public class UserController {
-//    @Autowired
-    UserRepo userRepo;
-//    @Autowired
+
+    @Autowired
     UserService userService;
 
     @GetMapping()
     public List<User> getAllUser() {
-        return userRepo.findAll();
+        return userService.findAll();
     }
 
     @PostMapping()
